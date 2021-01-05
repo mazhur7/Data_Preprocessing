@@ -17,7 +17,7 @@ image
 
 * SQL proc :
 
-'''
+```
 CREATE TABLE [WRK_VehicleService_20210104]
   (
   [RowNumber]		INT IDENTITY (1,1)
@@ -28,9 +28,9 @@ CREATE TABLE [WRK_VehicleService_20210104]
       ,[2015]		FLOAT
       ,[2016E]		FLOAT
   )
-'''
-INSERT INTO TABLE 
-'''
+```
+INSERT INTO TABLE :
+```
 INSERT INTO [buisness_analysis].[dbo].[WRK_VehicleService_20210104]
 (    
       [CustomerID]
@@ -50,9 +50,9 @@ SELECT
       ,[2016E]
   FROM [buisness_analysis].[dbo].[RAW_VehicleService_20210104]
   
---EXCLUSIONS
+--EXCLUSIONS:
     WHERE ISNUMERIC([2015]) = 1
   or [2015] = ''
   
  -- (1049998 rows affected) 
-  '''
+ ```
