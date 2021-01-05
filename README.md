@@ -56,3 +56,41 @@ SELECT
   
  -- (1049998 rows affected) 
  ```
+ADDITIONAL EXCLUSIONS:
+  The company was founded in the 1950s.  this means that anything befor 1950 and after 2016 can't be true.  Let's check that
+  ```
+  delete FROM [buisness_analysis].[dbo].[WRK_VehicleService_20210104]
+  WHERE [CustomerSince] < '1950-01-01'
+  or [CustomerSince] > '2017-01-01' --(1 row affected)
+  ```
+  
+  CHECK DUPLICATES of Customers ID:
+  ```
+  select [CustomerID], count(*) 
+  from [WRK_VehicleService_20210104]
+  GROUP BY [CustomerID]
+  HAVING COUNT(*)>1
+
+  ```
+  
+  --additional checks
+  ```
+SELECT AVG([2016E]) AS ' avg2016', AVG([2014]) AS '2014', AVG([2015]) AS '2015' FROM [dbo].[WRK_VehicleService_20210104]
+SELECT MAX([2016E]) AS ' max2016', MAX([2014]) AS '2014', MAX([2015]) AS '2015' FROM [dbo].[WRK_VehicleService_20210104]
+SELECT MIN([2016E]) AS 'min 2016', MIN([2014]) AS '2014', MIN([2015]) AS '2015' FROM [dbo].[WRK_VehicleService_20210104]
+SELECT sum([2016E]) AS ' sum2016', sum([2014]) AS '2014', sum([2015]) AS '2015' FROM [dbo].[WRK_VehicleService_20210104]
+```
+We found that in max2014 '2000' doesn't seem to be true value
+```
+SELECT * FROM [dbo].[WRK_VehicleService_20210104]
+where [2014] = 20000
+or [2014] > 800
+```
+check the benchmark amount of annual income that we knew.
+```
+SELECT sum([2016E]) AS ' sum2016', sum([2014]) AS '2014', sum([2015]) AS '2015' FROM [dbo].[WRK_VehicleService_20210104]
+
+SELECT count(*) FROM [buisness_analysis].[dbo].[RAW_VehicleService_20210104]
+*/
+```
+  
