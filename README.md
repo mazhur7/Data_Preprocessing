@@ -10,7 +10,7 @@
       * Excele: Load data from txt files (SQL Query or or Import data tools. trancsofrm data views. Save as csv file
       * Notepad++: Put the data from two csv files in the final file(csv)
    * M Visual Studio SSIS 
-   
+   ![SSIS_DataFlow.png](https://github.com/mazhur7/Data_Preprocessing/blob/master/SSIS_DataFlow.png)
 Uplouding all data in the  Database tible:
 image
 
